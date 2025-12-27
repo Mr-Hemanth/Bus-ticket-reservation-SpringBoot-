@@ -1,0 +1,143 @@
+.landing-page {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.landing-content {
+    background: white;
+    border-radius: 10px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 800px;
+    width: 100%;
+}
+
+.landing-header h1 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+}
+
+.landing-header p {
+    color: #666;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+.landing-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    margin: 40px 0;
+}
+
+.feature-card {
+    padding: 20px;
+    border-radius: 8px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+}
+
+.feature-card h3 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: #666;
+    margin: 0;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+    transform: translateY(-5px);
+}
+
+.btn-icon {
+    margin-right: 8px;
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+.landing-actions {
+    margin-top: 30px;
+}
+
+.get-started-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: background-color 0.3s;
+}
+
+.get-started-btn:hover {
+    background: #0056b3;
+}
+
+.auth-options {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.auth-btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+}
+
+.login-btn {
+    background: #28a745;
+    color: white;
+}
+
+.login-btn:hover {
+    background: #218838;
+}
+
+.register-btn {
+    background: #ffc107;
+    color: #212529;
+}
+
+.register-btn:hover {
+    background: #e0a800;
+}
+
+@media (max-width: 768px) {
+    .landing-content {
+        padding: 20px;
+    }
+    
+    .landing-header h1 {
+        font-size: 2rem;
+    }
+    
+    .landing-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .auth-options {
+        flex-direction: column;
+    }
+}
