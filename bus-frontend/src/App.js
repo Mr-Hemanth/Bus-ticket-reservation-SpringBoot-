@@ -8,13 +8,14 @@ import Register from './pages/Register';
 import AdminDashboard from './pages/AdminDashboard';
 import UserDashboard from './pages/UserDashboard';
 import BusManagement from './pages/BusManagement';
+import AdminBookings from './pages/AdminBookings';
 import RouteManagement from './pages/RouteManagement';
 import ScheduleManagement from './pages/ScheduleManagement';
 import SearchBuses from './pages/SearchBuses';
 import BookingHistory from './pages/BookingHistory';
 import SeatSelection from './pages/SeatSelection';
 import BookingConfirmation from './pages/BookingConfirmation';
-import Home from './pages/Home';
+
 import LandingPage from './pages/LandingPage';
 
 function App() {
@@ -55,6 +56,14 @@ function App() {
               element={
                 <ProtectedRoute allowedRoles={['ADMIN']}>
                   <ScheduleManagement />
+                </ProtectedRoute>
+              } 
+            />
+            <Route 
+              path="/admin/bookings" 
+              element={
+                <ProtectedRoute allowedRoles={['ADMIN']}>
+                  <AdminBookings />
                 </ProtectedRoute>
               } 
             />

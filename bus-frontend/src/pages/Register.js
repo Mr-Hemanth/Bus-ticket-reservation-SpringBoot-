@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../services/api';
-import { FaUserPlus, FaUser, FaEnvelope, FaLock, FaCheck, FaSpinner } from 'react-icons/fa';
+import { FaUserPlus, FaUser, FaEnvelope, FaLock, FaSpinner } from 'react-icons/fa';
 import './Register.css';
 
 const Register = () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
-import { FaBus, FaTicketAlt, FaUser, FaSignOutAlt, FaHome, FaCalendarAlt, FaRoute } from 'react-icons/fa';
+import { FaBus, FaTicketAlt, FaSignOutAlt, FaHome, FaCalendarAlt, FaRoute } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {

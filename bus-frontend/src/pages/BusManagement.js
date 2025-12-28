@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { adminAPI } from '../services/api';
+import { FaBus, FaEdit, FaTrash, FaPlus, FaTimes, FaCheck } from 'react-icons/fa';
 import './BusManagement.css';
 
 const BusManagement = () => {
@@ -91,6 +92,7 @@ const BusManagement = () => {
                 className="add-bus-btn" 
                 onClick={() => { setShowForm(true); setEditingBus(null); setError(''); }}
             >
+                <FaPlus className="btn-icon" />
                 Add New Bus
             </button>
             
@@ -130,9 +132,11 @@ const BusManagement = () => {
                     </div>
                     <div className="form-actions">
                         <button type="submit" className="submit-btn">
+                            <FaCheck className="btn-icon" />
                             {editingBus ? 'Update' : 'Add'} Bus
                         </button>
                         <button type="button" onClick={resetForm} className="cancel-btn">
+                            <FaTimes className="btn-icon" />
                             Cancel
                         </button>
                     </div>
@@ -160,18 +164,20 @@ const BusManagement = () => {
                                     <td>{bus.id}</td>
                                     <td>{bus.busNumber}</td>
                                     <td>{bus.totalSeats}</td>
-                                    <td>${bus.price}</td>
+                                    <td>₹{bus.price}</td>
                                     <td>
                                         <button 
                                             onClick={() => handleEdit(bus)} 
                                             className="edit-btn"
                                         >
+                                            <FaEdit className="btn-icon" />
                                             Edit
                                         </button>
                                         <button 
                                             onClick={() => handleDelete(bus.id)} 
                                             className="delete-btn"
                                         >
+                                            <FaTrash className="btn-icon" />
                                             Delete
                                         </button>
                                     </td>

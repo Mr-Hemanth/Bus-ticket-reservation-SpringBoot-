@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { adminAPI } from '../services/api';
+import { FaCalendarAlt, FaBus, FaRoute, FaClock, FaPlus, FaEdit, FaTrash, FaCheck, FaTimes } from 'react-icons/fa';
 import './ScheduleManagement.css';
 
 const ScheduleManagement = () => {
@@ -128,7 +129,7 @@ const ScheduleManagement = () => {
 
     return (
         <div className="schedule-management">
-            <h1>Schedule Management</h1>
+            <h1><FaCalendarAlt className="page-icon" /> Schedule Management</h1>
             
             {error && <div className="error-message">{error}</div>}
             
@@ -136,6 +137,7 @@ const ScheduleManagement = () => {
                 className="add-schedule-btn" 
                 onClick={() => { setShowForm(true); setEditingSchedule(null); setError(''); }}
             >
+                <FaPlus className="btn-icon" />
                 Add New Schedule
             </button>
             
@@ -143,7 +145,7 @@ const ScheduleManagement = () => {
                 <form onSubmit={handleSubmit} className="schedule-form">
                     <h3>{editingSchedule ? 'Edit Schedule' : 'Add New Schedule'}</h3>
                     <div className="form-group">
-                        <label>Bus:</label>
+                        <label><FaBus className="input-icon" /> Bus:</label>
                         <select
                             name="busId"
                             value={formData.busId}
@@ -159,7 +161,7 @@ const ScheduleManagement = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label>Route:</label>
+                        <label><FaRoute className="input-icon" /> Route:</label>
                         <select
                             name="routeId"
                             value={formData.routeId}
@@ -175,7 +177,7 @@ const ScheduleManagement = () => {
                         </select>
                     </div>
                     <div className="form-group">
-                        <label>Travel Date:</label>
+                        <label><FaCalendarAlt className="input-icon" /> Travel Date:</label>
                         <input
                             type="date"
                             name="travelDate"
@@ -185,7 +187,7 @@ const ScheduleManagement = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Departure Time:</label>
+                        <label><FaClock className="input-icon" /> Departure Time:</label>
                         <input
                             type="time"
                             name="departureTime"
@@ -195,7 +197,7 @@ const ScheduleManagement = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Arrival Time:</label>
+                        <label><FaClock className="input-icon" /> Arrival Time:</label>
                         <input
                             type="time"
                             name="arrivalTime"
@@ -205,7 +207,7 @@ const ScheduleManagement = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Available Seats:</label>
+                        <label><FaBus className="input-icon" /> Available Seats:</label>
                         <input
                             type="number"
                             name="availableSeats"
@@ -216,9 +218,11 @@ const ScheduleManagement = () => {
                     </div>
                     <div className="form-actions">
                         <button type="submit" className="submit-btn">
+                            <FaCheck className="btn-icon" />
                             {editingSchedule ? 'Update' : 'Add'} Schedule
                         </button>
                         <button type="button" onClick={resetForm} className="cancel-btn">
+                            <FaTimes className="btn-icon" />
                             Cancel
                         </button>
                     </div>
@@ -254,18 +258,20 @@ const ScheduleManagement = () => {
                                     <td>{schedule.departureTime}</td>
                                     <td>{schedule.arrivalTime}</td>
                                     <td>{schedule.availableSeats}</td>
-                                    <td>${schedule.price}</td>
+                                    <td>₹{schedule.price}</td>
                                     <td>
                                         <button 
                                             onClick={() => handleEdit(schedule)} 
                                             className="edit-btn"
                                         >
+                                            <FaEdit className="btn-icon" />
                                             Edit
                                         </button>
                                         <button 
                                             onClick={() => handleDelete(schedule.id)} 
                                             className="delete-btn"
                                         >
+                                            <FaTrash className="btn-icon" />
                                             Delete
                                         </button>
                                     </td>

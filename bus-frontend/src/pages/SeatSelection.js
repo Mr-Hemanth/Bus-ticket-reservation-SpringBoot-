@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { customerAPI } from '../services/api';
+import { FaChair, FaCheck, FaArrowLeft } from 'react-icons/fa';
 import './SeatSelection.css';
 
 const SeatSelection = () => {
@@ -105,7 +106,10 @@ const SeatSelection = () => {
             <div className="page-header">
                 <h1>Seat Selection</h1>
                 <div className="page-actions">
-                    <Link to="/search" className="back-btn">Back to Search</Link>
+                    <Link to="/search" className="back-btn">
+                        <FaArrowLeft className="btn-icon" />
+                        Back to Search
+                    </Link>
                 </div>
             </div>
             
@@ -117,7 +121,7 @@ const SeatSelection = () => {
                     <p><strong>Route:</strong> {schedule.source} to {schedule.destination}</p>
                     <p><strong>Date:</strong> {new Date(schedule.travelDate).toLocaleDateString()}</p>
                     <p><strong>Departure:</strong> {schedule.departureTime}</p>
-                    <p><strong>Price per seat:</strong> ${schedule.price}</p>
+                    <p><strong>Price per seat:</strong> ₹{schedule.price}</p>
                     <p><strong>Total Seats:</strong> {schedule.totalSeats || 'N/A'}</p>
                 </div>
             )}
@@ -136,7 +140,8 @@ const SeatSelection = () => {
                             }`}
                             onClick={() => handleSeatClick(seat.number)}
                         >
-                            {seat.number}
+                            <FaChair className="seat-icon" />
+                            <span className="seat-number">{seat.number}</span>
                         </div>
                     ))}
                 </div>
@@ -144,12 +149,13 @@ const SeatSelection = () => {
             
             <div className="booking-summary">
                 <h3>Selected Seats: {selectedSeats.join(', ') || 'None'}</h3>
-                <p>Total Price: ${schedule ? (schedule.price * selectedSeats.length).toFixed(2) : '0.00'}</p>
+                <p>Total Price: ₹{schedule ? (schedule.price * selectedSeats.length).toFixed(2) : '0.00'}</p>
                 <button 
                     onClick={handleBookSeats} 
                     disabled={selectedSeats.length === 0}
                     className="book-btn"
                 >
+                    <FaCheck className="btn-icon" />
                     Book Selected Seats
                 </button>
             </div>

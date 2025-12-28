@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { FaBus, FaTicketAlt, FaUser, FaCreditCard } from 'react-icons/fa';
 import './UserDashboard.css';
 
 const UserDashboard = () => {
@@ -23,21 +24,25 @@ const UserDashboard = () => {
             <main className="dashboard-main">
                 <div className="dashboard-grid">
                     <Link to="/search" className="dashboard-card">
+                        <FaBus className="dashboard-card-icon" />
                         <h3>Search Buses</h3>
                         <p>Find and book bus tickets</p>
                     </Link>
                     
                     <Link to="/bookings" className="dashboard-card">
+                        <FaTicketAlt className="dashboard-card-icon" />
                         <h3>My Bookings</h3>
                         <p>View and manage your bookings</p>
                     </Link>
                     
                     <div className="dashboard-card" style={{opacity: 0.7, cursor: 'not-allowed'}}>
+                        <FaUser className="dashboard-card-icon" />
                         <h3>Profile Settings</h3>
                         <p>Update your personal information</p>
                     </div>
                     
                     <div className="dashboard-card" style={{opacity: 0.7, cursor: 'not-allowed'}}>
+                        <FaCreditCard className="dashboard-card-icon" />
                         <h3>Payment Methods</h3>
                         <p>Manage your payment options</p>
                     </div>

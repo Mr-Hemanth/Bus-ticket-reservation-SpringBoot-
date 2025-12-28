@@ -65,12 +65,27 @@
     color: inherit;
 }
 
+.dashboard-card-icon {
+    font-size: 2.5rem;
+    color: #007bff;
+    margin-bottom: 1rem;
+    display: block;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.dashboard-card:hover .dashboard-card-icon {
+    transform: scale(1.1);
+}
+
 .dashboard-card h3 {
     margin-top: 0;
     color: #007bff;
+    text-align: center;
 }
 
 .dashboard-card p {
     color: #6c757d;
     margin-bottom: 0;
+    text-align: center;
 }

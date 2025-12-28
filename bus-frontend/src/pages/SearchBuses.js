@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { customerAPI } from '../services/api';
+import { FaBus, FaRoute, FaCalendarAlt, FaClock, FaRupeeSign, FaChair, FaSearch, FaArrowLeft } from 'react-icons/fa';
 import './SearchBuses.css';
 
 const SearchBuses = () => {
@@ -51,7 +52,10 @@ const SearchBuses = () => {
             <div className="page-header">
                 <h1>Search Buses</h1>
                 <div className="page-actions">
-                    <Link to={user?.role === 'ADMIN' ? '/admin' : '/user'} className="back-btn">Back to Dashboard</Link>
+                    <Link to={user?.role === 'ADMIN' ? '/admin' : '/user'} className="back-btn">
+                        <FaArrowLeft className="btn-icon" />
+                        Back to Dashboard
+                    </Link>
                 </div>
             </div>
             
@@ -59,7 +63,7 @@ const SearchBuses = () => {
             
             <form onSubmit={handleSubmit} className="search-form">
                 <div className="form-group">
-                    <label htmlFor="source">Source:</label>
+                    <label htmlFor="source"><FaRoute className="input-icon" /> Source:</label>
                     <input
                         type="text"
                         id="source"
@@ -71,7 +75,7 @@ const SearchBuses = () => {
                 </div>
                 
                 <div className="form-group">
-                    <label htmlFor="destination">Destination:</label>
+                    <label htmlFor="destination"><FaRoute className="input-icon" /> Destination:</label>
                     <input
                         type="text"
                         id="destination"
@@ -83,7 +87,7 @@ const SearchBuses = () => {
                 </div>
                 
                 <div className="form-group">
-                    <label htmlFor="travelDate">Travel Date:</label>
+                    <label htmlFor="travelDate"><FaCalendarAlt className="input-icon" /> Travel Date:</label>
                     <input
                         type="date"
                         id="travelDate"
@@ -95,6 +99,7 @@ const SearchBuses = () => {
                 </div>
                 
                 <button type="submit" disabled={loading} className="search-btn">
+                    <FaSearch className="btn-icon" />
                     {loading ? 'Searching...' : 'Search Buses'}
                 </button>
             </form>
@@ -106,13 +111,13 @@ const SearchBuses = () => {
                         {schedules.map(schedule => (
                             <div key={schedule.id} className="schedule-card">
                                 <div className="schedule-info">
-                                    <h3>{schedule.busNumber}</h3>
-                                    <p><strong>Route:</strong> {schedule.source} to {schedule.destination}</p>
-                                    <p><strong>Date:</strong> {new Date(schedule.travelDate).toLocaleDateString()}</p>
-                                    <p><strong>Departure:</strong> {schedule.departureTime}</p>
-                                    <p><strong>Arrival:</strong> {schedule.arrivalTime}</p>
-                                    <p><strong>Available Seats:</strong> {schedule.availableSeats}</p>
-                                    <p><strong>Price:</strong> ${schedule.price}</p>
+                                    <h3><FaBus className="card-icon" /> {schedule.busNumber}</h3>
+                                    <p><FaRoute className="card-icon" /><strong>Route:</strong> {schedule.source} to {schedule.destination}</p>
+                                    <p><FaCalendarAlt className="card-icon" /><strong>Date:</strong> {new Date(schedule.travelDate).toLocaleDateString()}</p>
+                                    <p><FaClock className="card-icon" /><strong>Departure:</strong> {schedule.departureTime}</p>
+                                    <p><FaClock className="card-icon" /><strong>Arrival:</strong> {schedule.arrivalTime}</p>
+                                    <p><FaChair className="card-icon" /><strong>Available Seats:</strong> {schedule.availableSeats}</p>
+                                    <p><FaRupeeSign className="card-icon" /><strong>Price:</strong> ₹{schedule.price}</p>
                                 </div>
                                 <div className="schedule-actions">
                                     <button 
@@ -120,6 +125,7 @@ const SearchBuses = () => {
                                         disabled={schedule.availableSeats === 0}
                                         className="book-btn"
                                     >
+                                        <FaChair className="btn-icon" />
                                         {schedule.availableSeats === 0 ? 'Sold Out' : 'Book Seats'}
                                     </button>
                                 </div>

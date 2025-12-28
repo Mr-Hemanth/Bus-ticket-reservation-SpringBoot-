@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { adminAPI } from '../services/api';
+import { FaRoute, FaPlus, FaEdit, FaTrash, FaCheck, FaTimes } from 'react-icons/fa';
 import './RouteManagement.css';
 
 const RouteManagement = () => {
@@ -81,7 +82,7 @@ const RouteManagement = () => {
 
     return (
         <div className="route-management">
-            <h1>Route Management</h1>
+            <h1><FaRoute className="page-icon" /> Route Management</h1>
             
             {error && <div className="error-message">{error}</div>}
             
@@ -89,6 +90,7 @@ const RouteManagement = () => {
                 className="add-route-btn" 
                 onClick={() => { setShowForm(true); setEditingRoute(null); setError(''); }}
             >
+                <FaPlus className="btn-icon" />
                 Add New Route
             </button>
             
@@ -96,7 +98,7 @@ const RouteManagement = () => {
                 <form onSubmit={handleSubmit} className="route-form">
                     <h3>{editingRoute ? 'Edit Route' : 'Add New Route'}</h3>
                     <div className="form-group">
-                        <label>Source:</label>
+                        <label><FaRoute className="input-icon" /> Source:</label>
                         <input
                             type="text"
                             name="source"
@@ -106,7 +108,7 @@ const RouteManagement = () => {
                         />
                     </div>
                     <div className="form-group">
-                        <label>Destination:</label>
+                        <label><FaRoute className="input-icon" /> Destination:</label>
                         <input
                             type="text"
                             name="destination"
@@ -117,9 +119,11 @@ const RouteManagement = () => {
                     </div>
                     <div className="form-actions">
                         <button type="submit" className="submit-btn">
+                            <FaCheck className="btn-icon" />
                             {editingRoute ? 'Update' : 'Add'} Route
                         </button>
                         <button type="button" onClick={resetForm} className="cancel-btn">
+                            <FaTimes className="btn-icon" />
                             Cancel
                         </button>
                     </div>
@@ -151,12 +155,14 @@ const RouteManagement = () => {
                                             onClick={() => handleEdit(route)} 
                                             className="edit-btn"
                                         >
+                                            <FaEdit className="btn-icon" />
                                             Edit
                                         </button>
                                         <button 
                                             onClick={() => handleDelete(route.id)} 
                                             className="delete-btn"
                                         >
+                                            <FaTrash className="btn-icon" />
                                             Delete
                                         </button>
                                     </td>

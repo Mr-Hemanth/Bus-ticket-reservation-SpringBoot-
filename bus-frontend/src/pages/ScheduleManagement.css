@@ -168,3 +168,36 @@
 .delete-btn:hover {
     background-color: #c82333;
 }
+
+.page-icon {
+    margin-right: 10px;
+    color: #007bff;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.btn-icon {
+    margin-right: 8px;
+    font-size: 0.9rem;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}
+
+.input-icon {
+    margin-right: 8px;
+    color: #007bff;
+    vertical-align: middle;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+}

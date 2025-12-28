@@ -68,7 +68,7 @@ const BookingConfirmation = () => {
                         </div>
                         <div className="detail-row">
                             <span className="label">Total Price:</span>
-                            <span className="value">${booking.totalPrice.toFixed(2)}</span>
+                            <span className="value">₹{booking.totalPrice.toFixed(2)}</span>
                         </div>
                         <div className="detail-row">
                             <span className="label">Status:</span>

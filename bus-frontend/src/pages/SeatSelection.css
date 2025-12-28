@@ -28,6 +28,9 @@
     padding: 0.5rem 1rem;
     border-radius: 4px;
     font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
 }
 
 .back-btn:hover {
@@ -100,6 +103,7 @@
     width: 50px;
     height: 50px;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     border: 2px solid #007bff;
@@ -107,6 +111,20 @@
     cursor: pointer;
     font-weight: bold;
     transition: all 0.2s;
+    position: relative;
+}
+
+.seat-icon {
+    font-size: 1rem;
+    margin-bottom: 2px;
+}
+
+.seat-number {
+    font-size: 0.7rem;
+    position: absolute;
+    bottom: 2px;
+    right: 2px;
+    font-weight: bold;
 }
 
 .seat:hover {
